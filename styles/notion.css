@@ -1,7 +1,7 @@
 /**
  * This file contains site-specifc style overrides for Notion elements from
  * react-notion-x.
- * 
+ *
  * react-notion-x's goal is to match styling as close as possible to Notion,
  * whereas our goal with this site is to adjust Notion's styling in a few key
  * places to add some flare.
@@ -12,17 +12,27 @@
   --notion-header-height: 54px;
 }
 
+.notion-app {
+  background: #f9f9f9;
+}
+
 .notion-page {
   padding-bottom: calc(max(5vh, 32px)) !important;
   line-height: 1.65;
 }
 
 .index-page {
-  --notion-max-width: 900px;
+  --notion-max-width: 1200px;
+}
+
+.notion-page-has-cover {
+  padding-top: 0px;
+  margin-top: -160px;
 }
 
 .notion-text {
   padding: 0.5em 2px;
+  display: none;
 }
 
 .notion-asset-caption {
@@ -39,10 +49,16 @@
   margin: 0 auto 20px;
 }
 
+.notion-collection-header {
+  display: none;
+}
+
 .notion-gallery-grid {
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  grid-gap: 6vmin;
-  gap: 6vmin;
+  grid-gap: 4vmin;
+  gap: 4vmin;
+  padding-top: 35px;
+  border-top: none;
 }
 
 .notion-gallery-grid .notion-page-icon {
@@ -64,22 +80,21 @@
 }
 
 .notion-collection-card {
-  border-radius: 6px;
-  box-shadow: none;
-}
-
-.notion-collection-card-cover img {
-  border-radius: 6px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 20px 0px rgb(69 67 96 / 10%);
 }
 
 .notion-collection-card {
   overflow: visible;
+  margin-top: 30px;
 }
 
 .notion-collection-card-cover {
-  border-radius: 6px;
+  width: 85%;
+  margin: 0 auto;
   overflow: visible;
-  box-shadow: 2px 2px 8px 4px rgba(15, 15, 15, 0.1);
+  position: relative;
+  height: 200px;
 }
 
 .notion-collection-card-cover {
@@ -88,8 +103,32 @@
   filter: none;
 }
 
+.notion-collection-card-cover img {
+  box-shadow: 0 10px 10px rgb(0 0 0 / 8%), 0 0 0 transparent;
+  border-radius: 20px;
+  position: absolute;
+  top: -40px;
+  transition: all 0.9s ease-in-out;
+}
+
+.notion-collection-card-cover img:hover {
+  transform: scale(1.1);
+}
+
+.notion-collection-card:hover {
+}
+
 .notion-collection-card:hover .notion-collection-card-cover {
-  filter: brightness(120%);
+}
+
+.notion-collection-card-body {
+  padding: 0px 25px 20px;
+}
+
+.notion-collection-card .notion-property-multi_select-item {
+  margin: 0 6px 6px 0;
+  padding: 12px 10px;
+  border-radius: 20px;
 }
 
 /* only target safari */
@@ -157,6 +196,7 @@
 .notion-title {
   display: block;
   text-align: center;
+  display: none;
 }
 
 .notion-collection-column-title {
@@ -174,6 +214,9 @@
 
 .notion-page-cover {
   /* box-shadow: 2px 2px 8px 4px rgba(15, 15, 15, 0.1); */
+  max-height: 35vh;
+  min-height: 35vh;
+  height: 35vh;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -310,6 +353,11 @@
 }
 
 /* if you don't want rounded page images, remove this */
+.notion-page-icon-wrapper {
+  top: -80px;
+  display: none;
+}
+
 .notion-page-icon-wrapper img.notion-page-icon {
   border-radius: 50%;
   box-shadow: 0 8px 40px 0 rgb(0 0 0 / 21%);
@@ -318,7 +366,7 @@
 .notion-header {
   background: hsla(0, 0%, 100%, 0.7);
   backdrop-filter: saturate(180%) blur(16px);
-  box-shadow: 2px 2px 8px 4px rgba(15, 15, 15, 0.1);
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 10%);
 }
 
 .dark-mode .notion-header {

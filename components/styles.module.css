@@ -43,16 +43,21 @@
   width: 640px;
 }
 
-.footer {
+.footerInner {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto auto 0;
-  padding: 8px;
+  padding: 16px;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .copyright {
@@ -68,7 +73,7 @@
 .settings a,
 .social a {
   cursor: pointer;
-  font-size: 2em;
+  font-size: 1.25em;
   display: inline-flex;
   padding: 0.25em;
   margin-right: 1vw;
@@ -181,7 +186,12 @@
     display: none;
   }
 }
-
+.githubCorner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
 .githubCorner:hover .octoArm {
   animation: octocat-wave 560ms ease-in-out;
 }
